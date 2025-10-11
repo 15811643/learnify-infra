@@ -4,3 +4,4 @@
 /usr/local/sbin/backup-learnify.sh
 /etc/cron.d/backup-learnify
 /etc/cron.weekly/site-health-mail
+/var/www/wp_stage/wp-content/mu-plugins/allow-svg-admins.php
