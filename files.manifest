@@ -1,3 +1,6 @@
 /etc/apache2/sites-enabled/learnify.cloud-ssl.conf
 /etc/apache2/conf-available/zzz-security-headers.conf
 /home/craig/site-health.sh
+/usr/local/sbin/backup-learnify.sh
+/etc/cron.d/backup-learnify
+/etc/cron.weekly/site-health-mail

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+TO="you@example.com"   # <-- change
+SUBJECT="Learnify Weekly Server Health $(date '+%Y-%m-%d')"
+OUT="$(/home/craig/site-health.sh || true)"
+printf "%s\n" "$OUT" | mail -s "$SUBJECT" "$TO"
