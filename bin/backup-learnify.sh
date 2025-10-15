@@ -142,4 +142,4 @@ fi
 
 # --- One-line summary footer (shows in your email) ---
 [ -z "$HEALTH" ] && HEALTH="OK"   # set earlier by your probe; default OK
-echo "[SUMMARY] HEALTH:${HEALTH}  GIT:${GIT_STATUS:-WARN}  BACKUP:OK"
+: "${HEALTH:=OK}"; : "${GIT_STATUS:=WARN}"; echo "[SUMMARY] HEALTH:${HEALTH}  GIT:${GIT_STATUS:-WARN}  BACKUP:OK"
