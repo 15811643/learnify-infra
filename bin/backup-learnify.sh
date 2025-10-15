@@ -113,3 +113,33 @@ echo "✅ Backup complete: ${TS}"
 
 # Retention (keep 14 local + remote)
 /usr/local/sbin/backup-retention-14.sh
+
+# --- GitHub access probe (non-fatal, prints in email) ---
+KEY="/root/.ssh/learnify_infra_ed25519"
+if GIT_SSH_COMMAND="ssh -o IdentitiesOnly=yes -i $KEY" \
+   git ls-remote git@github.com:15811643/learnify-infra.git >/dev/null 2>&1; then
+  echo "[GIT:OK] GitHub repo reachable with deploy key."
+  GIT_STATUS="OK"
+else
+  echo "[GIT:WARN] Cannot reach or push to GitHub repo."
+  GIT_STATUS="WARN"
+fi
+
+# --- GitHub infra sync (post-success) ---
+INFRA_DIR="/root/learnify-infra"
+if [ -d "$INFRA_DIR/.git" ]; then
+  cp -a /usr/local/sbin/backup-learnify.sh "$INFRA_DIR/bin/" 2>/dev/null || true
+  cp -a /etc/systemd/system/learnify-backup.service "$INFRA_DIR/systemd/" 2>/dev/null || true
+  cp -a /etc/systemd/system/learnify-backup.timer   "$INFRA_DIR/systemd/" 2>/dev/null || true
+  cp -a /etc/apache2/sites-available/*.conf         "$INFRA_DIR/apache/"  2>/dev/null || true
+
+  cd "$INFRA_DIR"
+  git add -A
+  git commit -m "Auto-backup $(date +%F-%H%M)" || echo "[INFO] Nothing to commit."
+  GIT_SSH_COMMAND="ssh -o IdentitiesOnly=yes -i $KEY" git push origin main \
+    && GIT_STATUS="OK" || echo "[WARN] Git push failed (network or key)"
+fi
+
+# --- One-line summary footer (shows in your email) ---
+[ -z "$HEALTH" ] && HEALTH="OK"   # set earlier by your probe; default OK
+echo "[SUMMARY] HEALTH:${HEALTH}  GIT:${GIT_STATUS:-WARN}  BACKUP:OK"
