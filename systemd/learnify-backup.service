@@ -1,10 +1,7 @@
 [Unit]
-Description=Learnify backup runner
-After=network-online.target mariadb.service
-Wants=network-online.target
+Description=Learnify automatic verified backup to Google Drive
+After=network-online.target mariadb.service apache2.service
 
 [Service]
 Type=oneshot
-Environment="PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin"
-ExecStart=/usr/local/sbin/backup-learnify.sh
-ExecStartPre=/usr/bin/flock -n /var/lock/learnify-backup.lock -c /bin/true
+ExecStart=/usr/local/bin/learnify-backup.sh
