@@ -1,0 +1,14 @@
+8c9da3c6ad34cb32b5bdb77768160799eae933061cbc5c8a4d576cb3466d2028  ./openapi.json
+ab952ecf0f177a2df4e8348f7bee6ea31d343a5a3eede247104877504457d409  ./etc/apache2/sites-available/glass.app.learnify.cloud-le-ssl.conf
+f59667df3596bf8bdeb5db6de422c0441ea075e956d11b27028417aa6266c90d  ./etc/apache2/sites-available/glass.app.learnify.cloud.conf
+1689c0de83d1a4cb0d03d0998b7df078faf83941a567fb0c829679885bb87c3a  ./etc/systemd/system/learnify-workflows.service.d/10-glass.conf
+34498f680dd6feae8a4335b578e5c3e81e89350f41131fe4d9537db350b09bab  ./apache_vhosts.txt
+5917e6f4b321e65fe9a64ef374a049c2a38c9c1f002f90ecc9ee3ac0fe452acb  ./infra/infra.bundle
+89f96bb7aef5a30ea68e12b18cbfadeab753bf356002dde4b25081f0b2101fdd  ./infra/commit.txt
+49fbf401af27b1284fcebbfba796d397ffbab7fbbdae7d75d32291b03013e7c2  ./glass_fs/workflow_lite_work.tgz
+bbe8c38e4951a8bd65f944903f243a481aeb330f1323a0fae71b82c67e0c5357  ./meta/manifest.json
+067ae1f0a9584265e07d27f52026c8efff0c57f1700f893ef1cf82a4485182db  ./code/worktree.bundle
+fe03865f7c6fcb293cfe97901f0a4c5e0d904e0496cb1d3e69be45861e3f6745  ./code/commit.txt
+ffbfdf4149645386b36b8ac736cc9ccb953e95b2e0584375d8a9b7ca35658ddf  ./health/glass_local.json
+ffbfdf4149645386b36b8ac736cc9ccb953e95b2e0584375d8a9b7ca35658ddf  ./health/glass_public.json
+ab307262eb487fdb06e340681e34f04ce9375faae9c48f0ee8e59903733ff106  ./SHA256SUMS.txt

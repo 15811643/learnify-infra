@@ -1,0 +1,35 @@
+VirtualHost configuration:
+*:443                  is a NameVirtualHost
+         default server learnify.cloud (/etc/apache2/sites-enabled/000-default-le-ssl.conf:2)
+         port 443 namevhost learnify.cloud (/etc/apache2/sites-enabled/000-default-le-ssl.conf:2)
+                 alias www.learnify.cloud
+         port 443 namevhost app.learnify.cloud (/etc/apache2/sites-enabled/app.learnify.cloud-le-ssl.conf:2)
+         port 443 namevhost demo.app.learnify.cloud (/etc/apache2/sites-enabled/demo.app.learnify.cloud-le-ssl.conf:2)
+         port 443 namevhost demo.learnify.cloud (/etc/apache2/sites-enabled/demo.learnify.cloud-le-ssl.conf:2)
+         port 443 namevhost glass.app.learnify.cloud (/etc/apache2/sites-enabled/glass.app.learnify.cloud-le-ssl.conf:2)
+         port 443 namevhost tools.learnify.cloud (/etc/apache2/sites-enabled/learnify-app-le-ssl.conf:2)
+*:80                   is a NameVirtualHost
+         default server ubuntu-24.localhost (/etc/apache2/sites-enabled/000-default.conf:1)
+         port 80 namevhost ubuntu-24.localhost (/etc/apache2/sites-enabled/000-default.conf:1)
+         port 80 namevhost app.learnify.cloud (/etc/apache2/sites-enabled/app.learnify.cloud.conf:3)
+         port 80 namevhost demo.app.learnify.cloud (/etc/apache2/sites-enabled/demo.app.learnify.cloud.conf:1)
+         port 80 namevhost demo.learnify.cloud (/etc/apache2/sites-enabled/demo.learnify.cloud.conf:1)
+         port 80 namevhost glass.app.learnify.cloud (/etc/apache2/sites-enabled/glass.app.learnify.cloud.conf:1)
+         port 80 namevhost app.learnify.cloud (/etc/apache2/sites-enabled/learnify-api.conf:1)
+         port 80 namevhost tools.learnify.cloud (/etc/apache2/sites-enabled/learnify-app.conf:1)
+ServerRoot: "/etc/apache2"
+Main DocumentRoot: "/var/www/html"
+Main ErrorLog: "/var/log/apache2/error.log"
+Mutex watchdog-callback: using_defaults
+Mutex rewrite-map: using_defaults
+Mutex ssl-stapling-refresh: using_defaults
+Mutex ssl-stapling: using_defaults
+Mutex proxy: using_defaults
+Mutex ssl-cache: using_defaults
+Mutex default: dir="/var/run/apache2/" mechanism=default 
+Mutex mpm-accept: using_defaults
+PidFile: "/var/run/apache2/apache2.pid"
+Define: DUMP_VHOSTS
+Define: DUMP_RUN_CFG
+User: name="www-data" id=33
+Group: name="www-data" id=33

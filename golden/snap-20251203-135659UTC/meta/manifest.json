@@ -1,0 +1,8 @@
+{
+  "manifest_version": 1,
+  "created_utc": "2025-12-03T13:57:04Z",
+  "service_status": "active",
+  "glass_host": "glass.app.learnify.cloud",
+  "paths": {"app_root":"/opt/learnify/worktree","fs_root":"/opt/learnify/worktree/app/modules/workflow_lite/work"},
+  "api_local": "http://127.0.0.1:8082"
+}
