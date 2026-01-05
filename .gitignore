@@ -1,18 +1,18 @@
-# secrets / credentials
-*secret*
-*passwd*
-*.key
-*.pem
-*.p12
-*.crt
-*.csr
-*.cnf
-*.ini
-*.env
-rclone.conf
-# wordpress live config (has DB creds)
-wp-config.php
-# dumps/cache
-*.sql
-*.sql.gz
+# backups / editor junk
+*.bak*
+*.backup*
+*~
+*.swp
+*.swo
 .DS_Store
+
+# node / python
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# logs / tmp
+*.log
+tmp/
